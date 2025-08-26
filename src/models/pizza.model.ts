@@ -21,18 +21,9 @@ const pizzaSchema: Schema = new mongoose.Schema(
     },
     sizes: [
       {
-        title: {
-          type: String,
-          required: true,
-          unique: true,
-        },
-        slug: {
-          type: String,
-          required: true,
-          unique: true,
-        },
-        radius: {
-          type: String,
+        sizeId: {
+          type: mongoose.Schema.Types.ObjectId,
+          ref: "Size",
           required: true,
         },
         price: {
@@ -50,13 +41,6 @@ const pizzaSchema: Schema = new mongoose.Schema(
       ref: "Crust",
       required: true,
     },
-    addOns: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Crust",
-        required: true,
-      },
-    ],
     toppings: [
       {
         toppingId: {
@@ -73,6 +57,15 @@ const pizzaSchema: Schema = new mongoose.Schema(
     category: {
       type: String,
       enum: ["VEG", "NON-VEG", "VEGAN"],
+      required: true,
+    },
+    isAvailable: {
+      type: Boolean,
+      required: true,
+      default: true,
+    },
+    maxOrderQuantity: {
+      type: Number,
       required: true,
     },
   },
