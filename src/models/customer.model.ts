@@ -1,14 +1,44 @@
 import mongoose, { type Schema } from "mongoose";
 
 const addressSchema = new mongoose.Schema({
-  label: { type: String, trim: true },
-  line1: { type: String, required: true, trim: true },
-  line2: { type: String, trim: true },
-  city: { type: String, required: true, trim: true },
-  state: { type: String, required: true, trim: true },
-  postalCode: { type: String, required: true, trim: true },
-  country: { type: String, required: true, trim: true, uppercase: true },
-  isPrimary: { type: Boolean, default: false },
+  label: {
+    type: String,
+    trim: true,
+  },
+  line1: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  line2: {
+    type: String,
+    trim: true,
+  },
+  city: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  state: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  postalCode: {
+    type: String,
+    required: true,
+    trim: true,
+  },
+  country: {
+    type: String,
+    required: true,
+    trim: true,
+    uppercase: true,
+  },
+  isPrimary: {
+    type: Boolean,
+    default: false,
+  },
 });
 
 const customerSchema: Schema = new mongoose.Schema(
@@ -38,3 +68,6 @@ const customerSchema: Schema = new mongoose.Schema(
     timestamps: true,
   }
 );
+
+const Customer = mongoose.model("Customer", customerSchema);
+export default Customer;
