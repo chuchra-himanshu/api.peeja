@@ -1,9 +1,12 @@
 import express, { type Express } from "express";
 import CONSTANTS from "./constants";
 import connectToDatabase from "./config/database.config";
+import router from "./routes/index.routes.js";
 
 const app: Express = express();
 const PORT = CONSTANTS.ENV_CONSTANTS.PORT;
+
+app.use("/", router);
 
 connectToDatabase()
   .then(() => {
