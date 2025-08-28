@@ -35,5 +35,5 @@ const crustSchema: Schema = new mongoose.Schema(
   }
 );
 
-const Crust = mongoose.model("Crust", crustSchema);
+const Crust = mongoose.model("Curst", crustSchema);
 export default Crust;

@@ -7,33 +7,6 @@ const orderSchema: Schema = new mongoose.Schema(
       ref: "Customer",
       required: true,
     },
-    pizza: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Pizza",
-      required: true,
-    },
-    size: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Size",
-      required: true,
-    },
-    crust: {
-      type: mongoose.Schema.Types.ObjectId,
-      ref: "Crust",
-      required: true,
-    },
-    toppings: [
-      {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: "Topping",
-        required: true,
-      },
-    ],
-    quantity: {
-      type: Number,
-      required: true,
-      min: 1,
-    },
   },
   {
     timestamps: true,
